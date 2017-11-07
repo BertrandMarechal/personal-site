@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="section">
+    <div class="row">
+      <div class="col s12">
+        <div class="row purple white-text">
+          <div class="col s12">
+            <h3 class="center-align">Get in touch!</h3>
+            <h6 class="center-align">I like to hear about new challenges. Don't hesitate to contact me.</h6>
+          </div>
+          <!-- <div class="col s12">
+            <p class="center-align">Let's speak a bit about what I do for a living.</p>
+          </div> -->
+        </div>
+      </div>
+      <div class="s12">
+        <div class="row">
+          <div class="col s12">
+            <div class="card">
+              <div class="card-content">
+                <div class="row">
+                  <div class="col s12">
+                    <div class="row" *ngFor="let contact of contacts">
+                      <div class="col s3">
+                        <i *ngIf="contact.iconType === 'material'" class="material-icons orange-text right">{{contact.icon}}</i>
+                        <b *ngIf="contact.iconType === 'text'" style="padding:2px 7px 2px 7px;border-radius:3px;" class="orange white-text right">{{contact.icon}}</b>
+                      </div>
+                      <div class="col s2">
+                        <b>{{contact.name}}</b>
+                      </div>
+                      <div class="col s7">
+                        <a target="_blank" href="{{contact.link}}">{{contact.text}}</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
