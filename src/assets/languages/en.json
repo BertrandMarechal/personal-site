@@ -213,13 +213,15 @@
     "pitch":"You'll find here the description of the years learning about what I am now doing.",
     "experiences": [
       {
-        "name": "Master EVA - Chalon-sur-Saône",
+        "name": "Master degree in Virtual Reality (Master EVA)",
+        "place": "Arts & Métiers ParisTech (Chalon-sur-Saône)",
         "fromTo": "Sep. 2010 - Apr. 2011",
         "descriptions": ["EVA stands for Espaces Virtuels Avancés, which means Advanced Virtual Spaces. I learned there about AR and VR technologies, the CGI pipeline and theory concerning virtual worlds."],
         "link": "http://mti3d.artsetmetiers.fr/"
       },
       {
-        "name": "Arts & Métiers ParisTech - Cluny and Paris",
+        "name": "General engineering degree",
+        "place": "Arts & Métiers ParisTech (Cluny and Paris)",
         "fromTo": "Sep. 2007 - Jun. 2010",
         "descriptions": [
           "Arts & Métiers ParisTech School is one of the schools from the ParisTech network, grouping some of the best schools in France. This school provides lessons from mechanical engineering to project management, and has a huge alumni society.",
