@@ -7,13 +7,22 @@ import { LocaleTextService } from '../../services/locale-text.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
+  menus: {
+    name: string,
+    link: string
+  }[];
   constructor(
     private localeTextService: LocaleTextService
   ) { }
 
   ngOnInit() {
-    this.localeTextService.getValue('test');
+    this.localeTextService.getValue('menu')
+    .then((result) => {
+      this.menus = result.menus;
+    })
+    .catch((error) => {
+      console.log(error)
+    });
   }
 
 }

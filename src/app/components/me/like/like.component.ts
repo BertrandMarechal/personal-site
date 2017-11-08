@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LocaleTextService } from '../../../services/locale-text.service';
 
 @Component({
   selector: 'app-like',
@@ -6,24 +7,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./like.component.css']
 })
 export class LikeComponent implements OnInit {
-  centersOfInterest: {title: string, description: string}[];
+  interests: {
+    title: string,
+    list: {
+      title: string,
+      description: string
+    }[]
+  };
 
-  constructor() { }
+    constructor(
+      private localeTextService: LocaleTextService
+    ) { }
 
   ngOnInit() {
-    this.centersOfInterest  = [
-      {
-        title: 'Friends',
-        description: 'The ones that are always ready for some great time together, those are the best ones!',
-      },
-      {
-        title: 'Travel',
-        description: 'I stopped counting the journeys a while ago, and usually travel to Europe or Brazil.',
-      },
-      {
-        title: 'Games',
-        description: 'More of a puzzle / brain game tough, even if I won\'t refuse something that empties my mind.',
-      },
-    ];
+    this.localeTextService.getValue('me')
+    .then((result) => {
+      this.interests = result.interests;
+    })
+    .catch((error) => {
+      console.log(error)
+    });
   }
 }

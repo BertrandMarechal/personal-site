@@ -2,13 +2,13 @@
   <div class="col s12">
     <div class="card">
       <div class="card-content purple">
-        <h4 class="white-text center-align">How to define myself ?</h4>
+        <h4 class="white-text center-align">{{values?.title}}</h4>
       </div>
       <div class="card-action">
         <div class="row">
-          <div class="col s12 m6 l4 purple-text" *ngFor="let whoAmI of whoAmIs"  style="height:150px;">
-            <h4 class="center-align">{{whoAmI.title}}</h4>
-            <p class="center-align">{{whoAmI.description}}</p>
+          <div class="col s12 m6 l4 purple-text" *ngFor="let value of values?.list"  style="height:150px;">
+            <h4 class="center-align">{{value.title}}</h4>
+            <p class="center-align">{{value.description}}</p>
           </div>
         </div>
       </div>

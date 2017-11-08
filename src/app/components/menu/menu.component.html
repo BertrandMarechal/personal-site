@@ -1,8 +1,13 @@
 <ul id="slide-out" class="side-nav">
   <li class="logo">
-    <a [routerLink]="['/']"><h5 class="red-text text-lighten-1">B.M.</h5></a>
+    <a [routerLink]="['/']">
+      <h5 class="purple-text">Bertrand Marechal</h5>
+    </a>
   </li>
-  <li><div class="divider"></div></li>
-  <li><a [routerLink]="['me']">About</a></li>
-  <li><a [routerLink]="['work']">Work</a></li>
+  <li>
+    <div class="divider"></div>
+  </li>
+  <li *ngFor="let menu of menus">
+    <a routerLink="{{menu.link}}" class="orange-text">{{menu.name}}</a>
+  </li>
 </ul>

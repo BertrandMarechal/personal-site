@@ -7,8 +7,10 @@ import 'rxjs/add/operator/catch';
 @Injectable()
 export class LocaleTextService {
   fileData: any;
+  fileDataEn: any;
   acceptedLocales = ['fr','en'];
   constructor(private http: Http) {
+    console.log('constructor')
     if (!this.fileData) {
       let userLang = navigator.language;
       if (this.acceptedLocales.indexOf(userLang) === -1) {
@@ -18,17 +20,28 @@ export class LocaleTextService {
         this.fileData = data.json();
       });
     }
+    if (!this.fileDataEn) {
+      this.http.get("assets/languages/en.json").subscribe(data => {
+        this.fileDataEn = data.json();
+      });
+    }
   }
 
   getValue(key: string): Promise<any> {
     return new Promise((resolve, reject) => {
-      if (!this.fileData) {
+      if (!this.fileData || !this.fileDataEn) {
         setTimeout(() => {
-          return this.getValue(key);
+          this.getValue(key)
+          .then((result) => {
+            resolve(result);
+          })
+          .catch((result) => {
+            reject(result);
+          });
         },100);
       }
       else {
-        resolve(this.fileData[key]);
+        resolve(this.fileData[key] || this.fileDataEn[key]);
       }
     });
   }

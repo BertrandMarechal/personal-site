@@ -4,14 +4,14 @@
       <div class="col s12">
         <div class="row purple white-text">
           <div class="col s12">
-            <h3 class="center-align">Scholarship</h3>
-            <h6 class="center-align">You'll find here the description of the years learning about what I am now doing.</h6>
+            <h3 class="center-align">{{data?.title}}</h3>
+            <h6 class="center-align">{{data?.pitch}}</h6>
           </div>
         </div>
       </div>
       <div class="s12">
         <div class="row">
-          <div class="col s12" *ngFor="let experience of experiences">
+          <div class="col s12" *ngFor="let experience of data?.experiences">
             <div class="card">
               <div class="card-content">
                 <div class="row">

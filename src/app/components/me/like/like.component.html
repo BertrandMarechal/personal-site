@@ -2,19 +2,16 @@
   <div class="col s12">
     <div class="card">
       <div class="card-content purple">
-        <h4 class="white-text center-align">What do I like</h4>
+        <h4 class="white-text center-align">
+          {{interests?.title}}
+          <i class="material-icons small">thumb_up</i>
+        </h4>
       </div>
       <div class="card-action">
         <div class="row">
-          <div class="col s12 l4 purple-text" *ngFor="let centerOfInterest of centersOfInterest"  style="height:150px;">
-            <h4 class="center-align">{{centerOfInterest.title}}</h4>
-            <p class="center-align">{{centerOfInterest.description}}</p>
-          </div>
-          <div class="col s12 l6 offset-l3 purple-text">
-            <h4 class="center-align">The usual</h4>
-            <p class="center-align">
-              Sports, making food, eating food, listening to music, speaking foreign languages, drinking good wines, fuit juices or beers.
-            </p>
+          <div class="col s12 m6 purple-text" *ngFor="let interest of interests?.list"  style="height:150px;">
+            <h4 class="center-align">{{interest?.title}} <i class="material-icons small">{{interest?.icon}}</i></h4>
+            <p class="center-align">{{interest?.description}}</p>
           </div>
         </div>
       </div>

@@ -1,15 +1,20 @@
 <footer class="page-footer purple">
-  <!-- <div class="container">
+  <div class="container hide-on-large-only">
     <div class="row">
-      <div class="col l6 s12">
+      <div class="col m6 s12">
         <h5 class="white-text">Bertrand Marechal</h5>
         <p class="grey-text text-lighten-4">Full stack Developper</p>
       </div>
-      <div class="col l4 offset-l2 s12">
-        <h5 class="white-text">About</h5>
+      <div class="col m4 offset-l2 s12">
+        <h5 class="white-text">Pages</h5>
+        <ul>
+          <li *ngFor="let menu of menus">
+            <a  routerLink="{{menu.link}}" class="white-text">{{menu.name}}</a>
+          </li>
+        </ul>
       </div>
     </div>
-  </div> -->
+  </div>
   <div class="footer-copyright">
     <div class="container">
       <div class="row" style="margin:0px;">
