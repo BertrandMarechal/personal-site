@@ -7,6 +7,7 @@
   import { ContactComponent } from './components/contact/contact.component';
   import { ScholarshipComponent } from './components/scholarship/scholarship.component';
   import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+  import { HeadtrackerComponent } from './components/projects/headtracker/headtracker.component';
 
   const routes: Routes = [
     {
@@ -22,14 +23,10 @@
       path: 'work',
       component: WorkComponent
     },
-    // {
-    //   path: 'home',
-    //   component: HomeComponent
-    // },
-    // {
-    //   path: 'projects',
-    //   component: ProjectsComponent
-    // },
+    {
+      path: 'projects',
+      loadChildren: 'app/components/projects/projects.module#ProjectsModule'
+    },
     {
       path: 'contact',
       component: ContactComponent
@@ -44,4 +41,4 @@
    },
   ];
   export const appRoutingProviders: any[] = [];
-  export const routing: ModuleWithProviders = RouterModule.forRoot(routes,{preloadingStrategy: PreloadAllModules});
+  export const routing: ModuleWithProviders = RouterModule.forRoot(routes);

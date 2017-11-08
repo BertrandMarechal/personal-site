@@ -32,6 +32,7 @@
     "rxjs": "^5.5.2",
     "sweetalert2": "^6.10.1",
     "three": "^0.87.1",
+    "three-js": "^79.0.0",
     "typescript": "^2.4.2",
     "zone.js": "^0.8.4"
   },

@@ -7,7 +7,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
-import { ProjectsComponent } from './components/projects/projects.component';
 import { MeComponent } from './components/me/me.component';
 import { WorkComponent } from './components/work/work.component';
 import { routing } from './app.routing';
@@ -29,7 +28,6 @@ enableProdMode();
   declarations: [
     AppComponent,
     HomeComponent,
-    ProjectsComponent,
     MeComponent,
     WorkComponent,
     HeaderComponent,
