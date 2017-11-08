@@ -17,7 +17,7 @@
                   <div class="col s12">
                     <div class="card-title">
                       <div class="row">
-                        <h4 class="col s12 m6 purple-text">
+                        <h4 class="col s12 m6 purple-text" style="font-weight:bold;">
                           {{experience.name}}
                         </h4>
                         <h5 class="col s12 m6 right-align orange-text">
@@ -32,13 +32,19 @@
                   <div class="col s12 m6" *ngFor="let project of experience.projects">
                     <div class="card">
                       <div class="card-content purple white-text">
-                        <h5 class="card-title">{{project.name}}<i class="material-icons right activator" style="cursor:pointer;">more_vert</i></h5>
+                        <h5 class="card-title" style="font-weight:bold;">{{project.name}}<i class="material-icons right activator" style="cursor:pointer;">more_vert</i></h5>
                         <h6>{{project.fromTo}}</h6>
                         <br>
                         <p>{{project.quickDescription}}</p>
                         <ul>
                           <li><b>Key points :</b></li>
                           <li *ngFor="let bullet of project.bullets"> - {{bullet}}</li>
+                        </ul>
+                      </div>
+                      <div class="card-action purple lighten-1 white-text">
+                        <ul>
+                          <li><b>Achievements</b></li>
+                          <li *ngFor="let achievement of project.achievements"> - {{achievement}}</li>
                         </ul>
                       </div>
                       <div class="card-reveal">

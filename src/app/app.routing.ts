@@ -6,11 +6,12 @@
   import { ProjectsComponent } from './components/projects/projects.component';
   import { ContactComponent } from './components/contact/contact.component';
   import { ScholarshipComponent } from './components/scholarship/scholarship.component';
+  import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
   const routes: Routes = [
     {
       path: '',
-      redirectTo: '/home',
+      redirectTo: '/me',
       pathMatch: 'full'
     },
     {
@@ -21,14 +22,14 @@
       path: 'work',
       component: WorkComponent
     },
-    {
-      path: 'home',
-      component: HomeComponent
-    },
-    {
-      path: 'projects',
-      component: ProjectsComponent
-    },
+    // {
+    //   path: 'home',
+    //   component: HomeComponent
+    // },
+    // {
+    //   path: 'projects',
+    //   component: ProjectsComponent
+    // },
     {
       path: 'contact',
       component: ContactComponent
@@ -37,6 +38,10 @@
       path: 'scholarship',
       component: ScholarshipComponent
     },
+   {
+      component: PageNotFoundComponent,
+      path: "**",
+   },
   ];
   export const appRoutingProviders: any[] = [];
   export const routing: ModuleWithProviders = RouterModule.forRoot(routes,{preloadingStrategy: PreloadAllModules});

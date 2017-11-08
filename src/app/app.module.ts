@@ -21,6 +21,7 @@ import { ContactComponent } from './components/contact/contact.component';
 import { ScholarshipComponent } from './components/scholarship/scholarship.component';
 import { LocaleTextService } from './services/locale-text.service';
 import { ContactsService } from './services/contacts.service';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 enableProdMode();
 
@@ -39,6 +40,7 @@ enableProdMode();
     WhoAmIComponent,
     ContactComponent,
     ScholarshipComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,

@@ -25,7 +25,7 @@
       "list": [
         {
           "title": "Passionate",
-          "description": "I do what I love and love what I do, so I usually do it with completely."
+          "description": "Do what you love and love what you do would define how I conceive work."
         },
         {
           "title": "Logical",
@@ -45,7 +45,7 @@
         },
         {
           "title": "Loyal",
-          "description": "I like a project that brings something, a person worth working."
+          "description": "Respect the people and the projects worth fighting for."
         }
       ]
     },
@@ -65,7 +65,7 @@
         {
           "title": "Games",
           "icon":"videogame_asset",
-          "description": "More of a puzzle / brain game tough, even if I won't refuse something that empties my mind."
+          "description": "More of a board / puzzle / brain game tough, even if I won't refuse something that empties my mind."
         },
         {
           "title": "The usual",
@@ -87,25 +87,33 @@
             {
             "name": "Cordant Connect",
             "fromTo": "Sep. 2016 - Nowadays",
-            "quickDescription": "Collection of micro services developped with cutting edge technologies, to ease the journey of candidates.",
+            "quickDescription": "Collection of micro services developped with cutting edge technologies, to ease the journey of candidates in the recruitment process.",
             "bullets": [
               "Cutting edge technologies",
-              "Team leading",
               "Full stack"
             ],
+            "achievements": [
+              "Developped and deployed various fast growing apps with huge ROI for the buiness",
+              "Improved the coding and deployment process",
+              "Took the lead of a team of developpers"
+            ],
             "longDescriptions": [
-              "Cordant Connect is a set of applications developped since late 2016 as microservices, to numerize and automate the work of Cordant Group employees, and to ease the journey of the candidates. It starts from the first contact the candidates have with the company (a call, an appointment in a branch), and goes all along the colleague's life in the company. The project, composed of 5 apps so far, has been a success quickly acepted by both branch staff and candidates.",
+              "Cordant Connect is a set of applications developped since late 2016 as microservices, to numerize and automate the work of Cordant Group employees, and to ease the journey of the candidates. It starts from the first contact the candidates have with the company (a call, an appointment in a branch), and goes all along the colleague's life in the company. The first applications have been a success and quickly acepted by both branch staff and candidates.",
               "From a technical point of view, the project started as a PoC (front end developped in HTML + jQuery / Google Spreadsheet database), and has now a fully grown technical stack, taking advantage of the latest technologies as for instance Angular 4, AWS Lambda, Serverless, PostgresSQL Database, AWS DynamoDB (NoSQL database)..."
             ]
           },
           {
-            "name": "Legacy applications and Spirit",
+            "name": "Spirit and Legacy",
             "fromTo": "Nov. 2015 - Mar. 2017",
-            "quickDescription": "Support and maintenance of the legacy systems, and development of a new system for workers management.",
+            "quickDescription": "Support and maintenance of the legacy systems, automation of some processes, and development of a new system for workers management.",
             "bullets": [
               "Wide spectrum of apps",
-              "Automation",
-              "Quick learning"
+              "Automation"
+            ],
+            "achievements": [
+              "Understanding the recruitment business through the user support and the applications",
+              "Catched up quickly on a project using proprietary language and complex algorithms and structure",
+              "Automated account creation for an application"
             ],
             "longDescriptions": [
               "My first assignment at Cordant Group was to work on the legacy systems that are still woring nowadays, as well as working on a new project that was being developped. The legacy systems cover a large spectrum of Microsoft applications, as for example C# applications, ASP websites, SSIS, SSRS, SQL Server databases, as well as off the shelf products, as for instance RoleCall.",
@@ -152,15 +160,19 @@
     {
       "name": "CGI",
       "fromTo": "Apr. 2011 - Sep 2015",
-      "description": "CGI is an information technology and business process outsourcing company, strong of about 70 000 IT professionals. I worked in this company for about 4 years and a half, first as an intern, and then as an analyst developper. I spent all this time working on 2 projects for Dalkia, a client managing heating and air conditioning systems in France and Italy.",
+      "description": "CGI is an information technology and business process outsourcing company, strong of about 70 000 IT professionals. I worked in this company for about 4 years and a half, first as an intern, and then as an analyst developper. I worked for Dalkia (one of the main accounts for CGI Grenoble), a client managing heating and air conditioning systems in France and Italy.",
       "projects": [{
         "name": "Sigma Liss",
         "fromTo": "Mar. 2012 - Sep. 2015",
         "quickDescription": "Field journey scheduler.",
         "bullets": [
           "Monitoring automation",
-          "Interface improvement",
           "User satisfaction"
+        ],
+        "achievements": [
+          "Improved the data interface of the application from 70% to 99.5%",
+          "Develpped several monitoring and automation tools for support",
+          "Deployed the application to about 30 users"
         ],
         "longDescriptions": [
           "This project started some years before I joined the company, and wasn't quite used until the team changed. It became one of the main projects for Dalkia, as the cost reduction policy pointed out that the time spend on the field wasn't optimized. The idea for our team was to implement a part of the ARM solution developped by CGI U.S. and adapt it to Dalkia's context. The main challenge being the communication with Dalkia's other applications, the interface was a really critical subject, and was monitored hourly, with tools we developped inhouse. From the start of our intervention on the project to the end of my work on it, the interface fiability moved from 70% to 99%",
@@ -173,8 +185,12 @@
         "quickDescription": "Heating and air conditioning systems management.",
         "bullets": [
           "Complex system",
-          "Critical app",
-          "Technology qnd design upgrade"
+          "Critical app"
+        ],
+        "achievements": [
+          "Deployed new UI components and refreshed the design of the app",
+          "Earned business trust on complex subjects",
+          "Got to speed on an old and complicated application"
         ],
         "longDescriptions": [
           "This project was a monster web application, managing the consumptions and budgeting of the heating and air conditioning systems Dalkia was working on. It had at the time about 250 users, with 50 working live. It was one of Dalkia's main applications, as holder of the information used for the invoicing process. It was though comunicating with about 20 other applications, and had about 25 Oracle batches running at night, and a 24 hours budget closure batch day at the end of the year.",
