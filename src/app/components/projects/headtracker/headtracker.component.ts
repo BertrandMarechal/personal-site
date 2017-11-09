@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { HeadtrackerHead } from '../../../models/headtracker-head';
 import { HeadtrackerScene } from '../../../models/headtracker-scene';
 import { HeadtrackerService } from '../../../services/headtracker.service';
@@ -12,7 +12,7 @@ declare var headtrackr: any;
   templateUrl: './headtracker.component.html',
   styleUrls: ['./headtracker.component.css']
 })
-export class HeadtrackerComponent implements OnInit {
+export class HeadtrackerComponent implements OnInit, OnDestroy {
   scene: any;
   statusMessages = {
     "whitebalance" : "Checking for stability of camera whitebalance",
@@ -27,10 +27,14 @@ export class HeadtrackerComponent implements OnInit {
     "no getUserMedia" : "Unfortunately, <a href='http://dev.w3.org/2011/webrtc/editor/getusermedia.html'>getUserMedia</a> is not supported in your browser. Try <a href='http://www.opera.com/browser/'>downloading Opera 12</a> or <a href='http://caniuse.com/stream'>another browser that supports getUserMedia</a>. Now using fallback video for facedetection.",
     "no camera" : "No camera found. Using fallback video for facedetection."
   };
+  @ViewChild('video') video:any;
+  @ViewChild('canvas') canvas:any;
   videoWidth: number;
   videoHeight: number;
   supportMessage: string;
   head: HeadtrackerHead;
+  htracker: any;
+  localstream: any;
 
   container: any;
   sceneCube: any;
@@ -42,6 +46,9 @@ export class HeadtrackerComponent implements OnInit {
 
   yAxis = new THREE.Vector3(0,1,0);
   xAxis = new THREE.Vector3(1,0,0);
+
+  cadreBorderLeftWidth: number = 100;
+  cadreBorderRightWidth: number = 100;
 
   //centre loookat
   center = new THREE.Vector3(0,0,0);
@@ -57,8 +64,8 @@ export class HeadtrackerComponent implements OnInit {
       this.videoHeight = 240;
       this.head = new HeadtrackerHead();
       // var trackerTask;
-      let videoInput = document.getElementById('video');
-      let canvasInput = document.getElementById('canvas');
+      let videoInput = this.video.nativeElement;
+      let canvasInput = this.canvas.nativeElement;
       this.head = new HeadtrackerHead(this.videoWidth,this.videoHeight);
 
       document.addEventListener("headtrackrStatus", (event: any) => {
@@ -71,9 +78,12 @@ export class HeadtrackerComponent implements OnInit {
 
 
 
-      let htracker = new headtrackr.Tracker({altVideo : {ogv : "./media/capture5.ogv", mp4 : "./media/capture5.mp4"}, calcAngles : false, ui : false, headPosition : false});
-      htracker.init(videoInput, canvasInput);
-      htracker.start();
+      this.htracker = new headtrackr.Tracker({altVideo : {ogv : "./media/capture5.ogv", mp4 : "./media/capture5.mp4"}, calcAngles : false, ui : false, headPosition : false});
+      this.htracker.init(videoInput, canvasInput);
+      this.htracker.start();
+      navigator.mediaDevices.getUserMedia({ video: true }).then((stream) => {// jshint ignore:line
+        this.localstream = stream;
+      });
       document.addEventListener("facetrackingEvent", ( event: any ) => {
         // once we have stable tracking, draw rectangle
         if (event.detection == "CS") {
@@ -86,7 +96,13 @@ export class HeadtrackerComponent implements OnInit {
 
     },50);
   }
-
+  ngOnDestroy() {
+    let _video = this.video.nativeElement;
+    _video.pause();
+    this.localstream.getTracks()[0].stop();
+    _video.src = "";
+    console.log('ngOnDestroy')
+  }
   initGl() {
 
   	this.container = document.getElementById( 'container' );
@@ -113,8 +129,6 @@ export class HeadtrackerComponent implements OnInit {
   	document.addEventListener( 'keydown', this.onDocumentKeyDown.bind(this), false );
   	this.onWindowResize();
   }
-  cadreBorderLeftWidth: number = 100;
-  cadreBorderRightWidth: number = 100;
   onWindowResize() {
 
   	this.camera.aspect = window.innerWidth / window.innerHeight;

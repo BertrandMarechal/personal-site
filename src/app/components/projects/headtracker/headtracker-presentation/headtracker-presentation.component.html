@@ -1,0 +1,69 @@
+<div class="container">
+  <div class="section">
+    <div class="row">
+      <div class="col s12">
+        <div class="row purple white-text">
+          <div class="col s12">
+            <h3 class="center-align">
+              <span class="valign-wrapper">
+              <i class="material-icons medium" style="cursor:pointer;" routerLink="../">keyboard_arrow_left</i> {{data?.name}}
+              </span>
+            </h3>
+            <h6 class="center-align">{{data?.pitch}}</h6>
+        </div>
+      </div>
+      <div class="s12">
+        <div class="row">
+          <div class="col s12">
+            <div class="card">
+              <div class="card-content">
+                <div class="card-title purple-text">
+                  <h4><i class="material-icons small">lightbulb_outline</i>Idea</h4>
+                </div>
+                <div class="row" *ngFor="let explaination of data?.explaination">
+                  <div class="col s12">
+                    <p>{{explaination}}</p>
+                  </div>
+                </div>
+              </div>
+              <div class="card-action" *ngIf="data?.links.length > 0">
+                <h5 class="purple-text">Librairies used</h5>
+                <a href="{{link.link}}" target="_blank" *ngFor="let link of data?.links">
+                  {{link.name}}
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col s12">
+            <div class="card">
+              <div class="card-content">
+                <div class="card-title orange-text">
+                  <h4><i class="material-icons small">warning</i> Berore testing</h4>
+                </div>
+                <div class="row" *ngFor="let bt of data?.beforeTesting">
+                  <div class="col s12">
+                    <p>{{bt}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col s12">
+            <div class="card orange darken-1 hoverable white-text" style="cursor:pointer;" routerLink="{{data?.linkTest}}">
+              <div class="card-content">
+                <div class="row">
+                  <div class="col s11">
+                    <h5>Shall we ?</h5>
+                  </div>
+                  <div class="col s1 valign-wrapper">
+                    <i class="material-icons right medium">keyboard_arrow_right</i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

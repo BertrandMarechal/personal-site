@@ -14,6 +14,10 @@
         "link": "/scholarship"
       },
       {
+        "name": "Projects",
+        "link": "/projects"
+      },
+      {
         "name": "Contact",
         "link": "/contact"
       }
@@ -223,6 +227,42 @@
         "tooltip":"Microsoft"
       }]
     }]
+  },
+  "projects": {
+    "title":"Projects",
+    "pitch":"We all start small, and end up as far as our life let us go to. Those projects are not my first ones, not my last ones, but they are what made me like what I do.",
+    "list": [
+      {
+        "name": "3D images - Webcam headtracker",
+        "link": "headtracker",
+        "linkTest": "test",
+        "pitch": "What if a plane surface gave you the impression of 3D, with no glasses or VR headset? That is the idea of this project. Using ThreeJS and headtrackr, I managed to reproduce a '3D effect' on pictures I have taken and pre-processed. It has just been adapted to work with Angular.",
+        "explaination": [
+          "The idea is simple but first of all, you have to have pictures. I took mine in Chiswick house and gardens park, London, UK, or during the Coupe Icare, Grenoble, France.",
+          "I then identified the pictures that were to be used, and edited them, so that they contained only graphical information relevant for the layer I wanted them to represent.",
+          "Then, ThreeJS and headtrackr provided respectively the 3D environment and the head location necessary to do the calculation to render the pictures.",
+          "The only remaining challenge was to play with depth and the virtual head to have this effect."
+        ],
+        "beforeTesting": [
+          "This experience has been designed for desktops with webcam only, so please do not expect it to work properly on tablet or smartphone.",
+          "There is a defined set of scenes, feel free to press the left and right arrows of your keyboard to discover.",
+          "The next page will ask for your authorization to use the camera, it is for head tracking purpose only, no worries.",
+          "Please try to use as much light as you can on your face, this ease the process of face detection.",
+          "The video stream might not stop after you come back from the next screen, I am working on it, please reload the page if any issue.",
+          "It might be a little laggy, yet again, I was proud and happy with the result, I hope you will like it."
+        ],
+        "links": [
+          {
+            "name": "three js",
+            "link": "https://threejs.org/"
+          },
+          {
+            "name": "headtrackr",
+            "link": "https://github.com/auduno/headtrackr"
+          }
+        ]
+      }
+    ]
   },
   "school": {
     "title":"Scholarship",

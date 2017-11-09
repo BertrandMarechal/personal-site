@@ -1,1 +1,48 @@
-<router-outlet></router-outlet>
+<div class="container">
+  <div class="section">
+    <div class="row">
+      <div class="col s12">
+        <div class="row purple white-text">
+          <div class="col s12">
+            <h3 class="center-align">{{data?.title}}</h3>
+            <h6 class="center-align">{{data?.pitch}}</h6>
+        </div>
+      </div>
+      <div class="s12">
+        <div class="row">
+          <div class="col s12" *ngFor="let project of data?.list; let i = index">
+            <div class="card">
+              <div class="card-content">
+                <div class="row">
+                  <div class="col s12">
+                    <div class="card-title">
+                      <div class="row">
+                        <h4 class="col s12 purple-text" style="font-weight:bold;">
+                          {{project.name}}
+                        </h4>
+                      </div>
+                      <div class="row">
+                        <div class="col s12">
+                          <p>{{project.pitch}}</p>
+                        </div>
+                        <div class="col s12">
+                          <div class="btn orange right" routerLink="{{project.link}}">Learn more</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-action" *ngIf="project.links.length > 0">
+                <h5 class="purple-text">Librairies used</h5>
+                <a href="{{link.link}}" target="_blank" *ngFor="let link of project.links">
+                  {{link.name}}
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
