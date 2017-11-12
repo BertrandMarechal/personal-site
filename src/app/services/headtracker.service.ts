@@ -100,7 +100,7 @@ export class HeadtrackerService {
         {
           "fileName":"./assets/images/headtracker/05/02.png",
           "z":3,
-          "scale":1
+          "scale":2
         }
       ]
     }

@@ -1,8 +1,8 @@
   import { Routes, RouterModule } from '@angular/router';
   import { ModuleWithProviders } from '@angular/core';
   import { ProjectsComponent } from './projects.component';
-  import { HeadtrackerComponent } from './headtracker/headtracker.component';
-  import { HeadtrackerPresentationComponent } from './headtracker/headtracker-presentation/headtracker-presentation.component';
+  import { HeadtrackerComponent } from './headtracker/headtracker-demo/headtracker.component';
+  import { HeadtrackerPresentationComponent } from './headtracker/headtracker-presentation.component';
 
   const routes: Routes = [
     {

@@ -4,9 +4,9 @@ import { CommonModule } from '@angular/common';
 import { routing } from './projects.routing';
 
 import { HeadtrackerService } from '../../services/headtracker.service';
-import { HeadtrackerComponent } from './headtracker/headtracker.component';
+import { HeadtrackerComponent } from './headtracker/headtracker-demo/headtracker.component';
 import { ProjectsComponent } from './projects.component';
-import { HeadtrackerPresentationComponent } from './headtracker/headtracker-presentation/headtracker-presentation.component';
+import { HeadtrackerPresentationComponent } from './headtracker/headtracker-presentation.component';
 
 @NgModule({
   imports: [

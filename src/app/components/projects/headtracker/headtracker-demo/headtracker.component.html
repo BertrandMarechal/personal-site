@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="section">
+    <video id="video" #video width="{{videoWidth}}" height="{{videoHeight}}" preload autoplay muted></video>
+    <div class="row">
+      <div class="col s4">
+        <a routerLink="../" class="btn purple">Go Back</a>
+      </div>
+      <div class="col s8">
+        <b>Status: </b><span>{{supportMessage}}</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s12">
+        <div id="container">
+          <div #cadre id="cadre" [ngStyle]="{'border-left-width': 100 + 'px','border-right-width': 100 + 'px'}">
+          </div>
+          <canvas #canvasRenderer style="display:block;margin:auto;" class="z-depth-4"></canvas>
+        </div>
+      </div>
+      <div class="col s12">
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s4">
+        <div class="btn orange darken-1 right" (click)="load(-1)"><i class="material-icons">keyboard_arrow_left</i></div>
+      </div>
+      <div class="col s4">
+      </div>
+      <div class="col s4">
+        <div class="btn orange darken-1" (click)="load(1)"><i class="material-icons">keyboard_arrow_right</i></div>
+      </div>
+    </div>
+  </div>
+</div>
+<canvas id="canvas" class="z-depth-4" #canvas width="{{videoWidth}}" height="{{videoHeight}}"></canvas>

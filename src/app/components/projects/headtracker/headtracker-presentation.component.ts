@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LocaleTextService } from '../../../../services/locale-text.service';
+import { LocaleTextService } from '../../../services/locale-text.service';
 
 @Component({
   selector: 'app-headtracker-presentation',

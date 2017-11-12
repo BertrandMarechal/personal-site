@@ -1,7 +1,7 @@
-import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
-import { HeadtrackerHead } from '../../../models/headtracker-head';
-import { HeadtrackerScene } from '../../../models/headtracker-scene';
-import { HeadtrackerService } from '../../../services/headtracker.service';
+import { Component, OnInit, OnDestroy, ViewChild, AfterViewInit } from '@angular/core';
+import { HeadtrackerHead } from '../../../../models/headtracker-head';
+import { HeadtrackerScene } from '../../../../models/headtracker-scene';
+import { HeadtrackerService } from '../../../../services/headtracker.service';
 
 
 declare var THREE: any;
@@ -12,7 +12,7 @@ declare var headtrackr: any;
   templateUrl: './headtracker.component.html',
   styleUrls: ['./headtracker.component.css']
 })
-export class HeadtrackerComponent implements OnInit, OnDestroy {
+export class HeadtrackerComponent implements OnInit, OnDestroy, AfterViewInit {
   scene: any;
   statusMessages = {
     "whitebalance" : "Checking for stability of camera whitebalance",
@@ -29,12 +29,14 @@ export class HeadtrackerComponent implements OnInit, OnDestroy {
   };
   @ViewChild('video') video:any;
   @ViewChild('canvas') canvas:any;
+  @ViewChild('canvasRenderer') canvasRenderer:any;
+  @ViewChild('cadre') cadre:any;
   videoWidth: number;
   videoHeight: number;
+  videoRatio: number;
   supportMessage: string;
   head: HeadtrackerHead;
   htracker: any;
-  localstream: any;
 
   container: any;
   sceneCube: any;
@@ -59,9 +61,12 @@ export class HeadtrackerComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
+    this.videoWidth = 320;
+    this.videoHeight = 240;
+    this.videoRatio = this.videoWidth / this.videoHeight;
+  }
+  ngAfterViewInit() {
     setTimeout(() => {
-      this.videoWidth = 320;
-      this.videoHeight = 240;
       this.head = new HeadtrackerHead();
       // var trackerTask;
       let videoInput = this.video.nativeElement;
@@ -69,21 +74,18 @@ export class HeadtrackerComponent implements OnInit, OnDestroy {
       this.head = new HeadtrackerHead(this.videoWidth,this.videoHeight);
 
       document.addEventListener("headtrackrStatus", (event: any) => {
-        if (event.status in this.supportMessages) {
+        if (this.supportMessages[event.status]) {
           this.supportMessage = this.supportMessages[event.status];
-        } else if (event.status in this.statusMessages) {
-          this.supportMessage = this.supportMessages[event.status];
+        } else if (this.statusMessages[event.status]) {
+          this.supportMessage = this.statusMessages[event.status];
         }
       }, true);
 
 
 
       this.htracker = new headtrackr.Tracker({altVideo : {ogv : "./media/capture5.ogv", mp4 : "./media/capture5.mp4"}, calcAngles : false, ui : false, headPosition : false});
-      this.htracker.init(videoInput, canvasInput);
+      this.htracker.init(videoInput, canvasInput);/**/
       this.htracker.start();
-      navigator.mediaDevices.getUserMedia({ video: true }).then((stream) => {// jshint ignore:line
-        this.localstream = stream;
-      });
       document.addEventListener("facetrackingEvent", ( event: any ) => {
         // once we have stable tracking, draw rectangle
         if (event.detection == "CS") {
@@ -96,25 +98,33 @@ export class HeadtrackerComponent implements OnInit, OnDestroy {
 
     },50);
   }
+  stopVideo() {
+    let video = this.video.nativeElement;
+    video.pause();
+    video.src = "";
+    if (this.htracker.stream) {
+      let tracks = this.htracker.stream.getTracks();
+      tracks.forEach(function(track) {
+        track.stop();
+      });
+    }
+  }
   ngOnDestroy() {
-    let _video = this.video.nativeElement;
-    _video.pause();
-    this.localstream.getTracks()[0].stop();
-    _video.src = "";
+    this.stopVideo();
     console.log('ngOnDestroy')
   }
   initGl() {
-
   	this.container = document.getElementById( 'container' );
+
   	this.scene = new THREE.Scene();
   	this.sceneCube = new THREE.Scene();
   	this.clock = new THREE.Clock();
-  	this.camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 0.01, 100 );
+  	this.camera = new THREE.PerspectiveCamera( 45, this.videoRatio, 0.01, 100 );
   	this.camera.applyMatrix( new THREE.Matrix4().makeTranslation( 10,10,10 ) );
-  	this.renderer = new THREE.WebGLRenderer();
+  	this.renderer = new THREE.WebGLRenderer({ canvas: this.canvasRenderer.nativeElement});
   	this.renderer.autoClear = false;
   	this.renderer.setPixelRatio( window.devicePixelRatio );
-  	this.renderer.setSize( window.innerWidth, window.innerHeight );
+    this.resizeRenderer();
   	this.container.appendChild( this.renderer.domElement );
 
   	//
@@ -131,15 +141,17 @@ export class HeadtrackerComponent implements OnInit, OnDestroy {
   }
   onWindowResize() {
 
-  	this.camera.aspect = window.innerWidth / window.innerHeight;
+  	this.camera.aspect = this.videoRatio;
   	this.camera.updateProjectionMatrix();
-  	let ratio = window.innerWidth/window.innerHeight;
+  	// let ratio = rendererWidth/this.cadre.nativeElement.clientHeight;
 
-    this.cadreBorderLeftWidth = ratio * 100;
-    this.cadreBorderRightWidth = ratio * 100;
-
-  	this.renderer.setSize( window.innerWidth, window.innerHeight );
-
+    this.cadreBorderLeftWidth = this.videoRatio * 100;
+    this.cadreBorderRightWidth = this.videoRatio * 100;
+    this.resizeRenderer();
+  }
+  resizeRenderer() {
+    let rendererWidth = Math.min(this.cadre.nativeElement.clientWidth,600);
+    this.renderer.setSize( rendererWidth, (rendererWidth - 100) / this.videoRatio );
   }
   animateGL() {
   	requestAnimationFrame( this.animateGL.bind(this) );
@@ -159,7 +171,6 @@ export class HeadtrackerComponent implements OnInit, OnDestroy {
   	this.renderer.render( this.scene, this.camera );
   }
   onDocumentKeyDown( event ) {
-  	console.log(event.keyCode);
   	if(event.keyCode==37){//gauche
       this.load(-1);
   	}
