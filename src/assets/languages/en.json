@@ -3,7 +3,7 @@
     "menus": [
       {
         "name": "About",
-        "link": "/me"
+        "link": "/"
       },
       {
         "name": "Work",
