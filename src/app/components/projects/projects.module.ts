@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { routing } from './projects.routing';
+import { SharedModule } from '../../shared/shared.module';
 
 import { HeadtrackerService } from '../../services/headtracker.service';
 import { HeadtrackerComponent } from './headtracker/headtracker.component';
@@ -12,6 +13,7 @@ import { ProjectDetailsComponent } from './project-details/project-details.compo
 @NgModule({
   imports: [
     CommonModule,
+    SharedModule,
     routing,
   ],
   declarations: [

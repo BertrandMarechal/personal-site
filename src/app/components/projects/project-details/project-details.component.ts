@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { LocaleTextService } from '../../../services/locale-text.service';
 
 @Component({
@@ -22,7 +22,8 @@ export class ProjectDetailsComponent implements OnInit {
   };
   constructor(
     private localeTextService: LocaleTextService,
-    private route: ActivatedRoute
+    private router: Router,
+    private route: ActivatedRoute,
   ) { }
 
   ngOnInit() {
@@ -36,5 +37,8 @@ export class ProjectDetailsComponent implements OnInit {
         console.log(error)
       });
     })
+  }
+  onBack() {
+    this.router.navigate(['../'],{relativeTo: this.route});
   }
 }

@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col s12 purple white-text">
+    <h3 class="center-align">
+      <span *ngIf="!needsBack">{{title}}</span>
+      <span class="valign-wrapper" *ngIf="needsBack">
+        <i class="material-icons medium" style="cursor:pointer;" (click)="onClick()">keyboard_arrow_left</i> {{title}}
+      </span>
+    </h3>
+    <div class="container" style="margin-bottom:30px;">
+      <h6 class="center-align">{{pitch}}</h6>
+    </div>
+  </div>
+</div>

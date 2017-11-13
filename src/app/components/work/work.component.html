@@ -2,11 +2,7 @@
   <div class="section">
     <div class="row">
       <div class="col s12">
-        <div class="row purple white-text">
-          <div class="col s12">
-            <h3 class="center-align">{{data?.title}}</h3>
-            <h6 class="center-align">{{data?.pitch}}</h6>
-        </div>
+        <app-page-header [title]="data?.title" [pitch]="data?.pitch"></app-page-header>
       </div>
       <div class="s12">
         <div class="row">

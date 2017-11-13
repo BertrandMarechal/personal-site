@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { MaterializeModule } from "angular2-materialize";
 import { HttpClientModule } from '@angular/common/http';
 
+import { SharedModule } from './shared/shared.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { MeComponent } from './components/me/me.component';
@@ -47,6 +48,7 @@ enableProdMode();
     HttpModule,
     routing,
     MaterializeModule,
+    SharedModule,
   ],
   providers: [
     LocaleTextService,
