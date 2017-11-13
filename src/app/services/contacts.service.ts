@@ -5,13 +5,13 @@ export class ContactsService {
 
   constructor() { }
   getContacts() {
-    return [{
+    return [/*{
       name: 'Phone',
       icon: 'phone',
       iconType: 'material',
       text: '+44 (0) 7760 919313',
       link: 'tel:+447760919313'
-    },
+    },*/
     {
       name: 'Email',
       icon: 'email',

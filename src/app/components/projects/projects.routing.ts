@@ -1,8 +1,12 @@
   import { Routes, RouterModule } from '@angular/router';
   import { ModuleWithProviders } from '@angular/core';
   import { ProjectsComponent } from './projects.component';
-  import { HeadtrackerComponent } from './headtracker/headtracker-demo/headtracker.component';
-  import { HeadtrackerPresentationComponent } from './headtracker/headtracker-presentation.component';
+
+  import { ProjectDetailsComponent } from './project-details/project-details.component';
+
+  import { HeadtrackerComponent } from './headtracker/headtracker.component';
+
+  import { PrimeUlamComponent } from './prime-ulam/prime-ulam.component';
 
   const routes: Routes = [
     {
@@ -11,11 +15,19 @@
     },
     {
       path: 'headtracker',
-      component: HeadtrackerPresentationComponent
+      component: ProjectDetailsComponent
     },
     {
-      path: 'headtracker/test',
+      path: 'headtracker/demo',
       component: HeadtrackerComponent
+    },
+    {
+      path: 'prime',
+      component: ProjectDetailsComponent
+    },
+    {
+      path: 'prime/demo',
+      component: PrimeUlamComponent
     }
   ];
   export const appRoutingProviders: any[] = [];

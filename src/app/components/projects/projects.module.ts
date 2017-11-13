@@ -4,9 +4,10 @@ import { CommonModule } from '@angular/common';
 import { routing } from './projects.routing';
 
 import { HeadtrackerService } from '../../services/headtracker.service';
-import { HeadtrackerComponent } from './headtracker/headtracker-demo/headtracker.component';
+import { HeadtrackerComponent } from './headtracker/headtracker.component';
 import { ProjectsComponent } from './projects.component';
-import { HeadtrackerPresentationComponent } from './headtracker/headtracker-presentation.component';
+import { PrimeUlamComponent } from './prime-ulam/prime-ulam.component';
+import { ProjectDetailsComponent } from './project-details/project-details.component';
 
 @NgModule({
   imports: [
@@ -16,7 +17,8 @@ import { HeadtrackerPresentationComponent } from './headtracker/headtracker-pres
   declarations: [
     HeadtrackerComponent,
     ProjectsComponent,
-    HeadtrackerPresentationComponent,
+    PrimeUlamComponent,
+    ProjectDetailsComponent,
   ],
   providers: [
     HeadtrackerService,

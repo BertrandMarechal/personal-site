@@ -1,11 +1,10 @@
 import { Component, OnInit, OnDestroy, ViewChild, AfterViewInit } from '@angular/core';
-import { HeadtrackerHead } from '../../../../models/headtracker-head';
-import { HeadtrackerScene } from '../../../../models/headtracker-scene';
-import { HeadtrackerService } from '../../../../services/headtracker.service';
-
-
-declare var THREE: any;
+import { HeadtrackerHead } from '../../../models/headtracker-head';
+import { HeadtrackerScene } from '../../../models/headtracker-scene';
+import { HeadtrackerService } from '../../../services/headtracker.service';
+import * as THREE from 'three';
 declare var headtrackr: any;
+import '../../../../assets/js/headtrackr.min.js';
 
 @Component({
   selector: 'app-headtracker',
@@ -66,7 +65,13 @@ export class HeadtrackerComponent implements OnInit, OnDestroy, AfterViewInit {
     this.videoRatio = this.videoWidth / this.videoHeight;
   }
   ngAfterViewInit() {
-    setTimeout(() => {
+    console.log(this)
+    if (!headtrackr) {
+      setTimeout(() => {
+        this.ngAfterViewInit();
+      },50);
+    }
+    else {
       this.head = new HeadtrackerHead();
       // var trackerTask;
       let videoInput = this.video.nativeElement;
@@ -92,11 +97,9 @@ export class HeadtrackerComponent implements OnInit, OnDestroy, AfterViewInit {
           this.head.update( event.x ,event.y,event.width, event.height);
         }
       });
-
       this.initGl();
       this.animateGL();
-
-    },50);
+    }
   }
   stopVideo() {
     let video = this.video.nativeElement;

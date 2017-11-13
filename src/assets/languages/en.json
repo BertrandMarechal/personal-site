@@ -235,7 +235,7 @@
       {
         "name": "3D images - Webcam headtracker",
         "link": "headtracker",
-        "linkTest": "test",
+        "linkTest": "demo",
         "pitch": "What if a plane surface gave you the impression of 3D, with no glasses or VR headset? That is the idea of this project. Using ThreeJS and headtrackr, I managed to reproduce a '3D effect' on pictures I have taken and pre-processed. It has just been adapted to work with Angular.",
         "explaination": [
           "The idea is simple but first of all, you have to have pictures. I took mine in Chiswick house and gardens park, London, UK, or during the Coupe Icare, Grenoble, France.",
@@ -259,6 +259,30 @@
           {
             "name": "headtrackr",
             "link": "https://github.com/auduno/headtrackr"
+          }
+        ]
+      },
+      {
+        "name": "Ulam Spiral",
+        "link": "prime",
+        "linkTest": "demo",
+        "pitch": "Have you ever felt bored during some meetings? Well, Stanislaw Ulam did, got a piece of paper, and drew a spiral of the positive integers (Yeah, no Facebook in 1963). After drawing a few hundred points, he noticed managed to obtain a pretty graphical depiction of prime numbers, that offered a map of the density of prime numbers.",
+        "explaination": [
+          "During some research work, I had a closer look into prime numbers, and a closer one to their representation: The Ulam Spiral.",
+          "The idea of this spiral is to represent all positive integers, in a spiral, and highlight the prime integers only. This work has done no major breakthrough on the comprehension of the prime numbers, but definitely gives an intriguing representation of the density of those numbers."
+        ],
+        "beforeTesting": [
+          "This experience has been designed for desktops, so please do not expect it to work properly on tablet or smartphone.",
+          "You can zoom in/out with the mouse's wheel, and rotate draging your mouse on the screen."
+        ],
+        "links": [
+          {
+            "name": "three js",
+            "link": "https://threejs.org/"
+          },
+          {
+            "name": "Wikipedia - Ulam Spiral",
+            "link": "https://en.wikipedia.org/wiki/Ulam_spiral"
           }
         ]
       }
